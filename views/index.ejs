@@ -44,7 +44,10 @@
   window.fbAsyncInit = function() {
   FB.init({
     appId      : '967238413395160',
-    xfbml      : true,
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml  : true , // parse XFBML
+    oauth : true // Enable oauth authentication
     version    : 'v2.6'
   });
 
@@ -91,6 +94,7 @@
                 if (!response || response.error)
                 {
                     alert('Posting error occured');
+                    console.log(response);
                 }
                 else
                 {
