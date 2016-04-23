@@ -92,6 +92,7 @@ This code will load and initialize the JavaScript SDK in your HTML page. Use you
         var imageObj1 = new Image();
         var imageObj2 = new Image();
         imageObj1.src ="https://graph.facebook.com/"+response.id+"/picture?height=400&width=400"
+        imageObj1.onload = function() {
          ctx.drawImage(imageObj1, 0, 0, 400, 400);
          imageObj2.src = "images/2.png";
          imageObj2.onload = function() {
