@@ -97,7 +97,7 @@ This code will load and initialize the JavaScript SDK in your HTML page. Use you
          imageObj2.src = "images/2.png";
          imageObj2.onload = function() {
             ctx.drawImage(imageObj2, 0, 0, 64, 64);
-            var img = c.toDataURL("image/png");
+            var img = c.toDataURL("/image/2.png");
             document.write('<img src="' + img + '" width="400" height="400"/>');
          }
         };
