@@ -89,7 +89,7 @@
                 picture : 'http://2.gravatar.com/avatar/8a13ef9d2ad87de23c6962b216f8e9f4?s=128&amp;d=mm&amp;r=G'
             };
 
-            FB.api('/me/feed', 'post', opts, function(response)
+            FB.api('/me/share', 'post', opts, function(response)
             {
                 if (!response || response.error)
                 {
