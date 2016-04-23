@@ -10,6 +10,8 @@ This code will load and initialize the JavaScript SDK in your HTML page. Use you
 <meta charset="UTF-8">
 </head>
 <body>
+  <canvas id="myCanvas" width="300" height="300"></canvas>
+
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -85,7 +87,19 @@ This code will load and initialize the JavaScript SDK in your HTML page. Use you
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-        console.log(response.id);
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        var imageObj1 = new Image();
+        var imageObj2 = new Image();
+        imageObj1.src ="https://graph.facebook.com/"+response.id+"/picture?height=400&width=400"
+         ctx.drawImage(imageObj1, 0, 0, 400, 400);
+         imageObj2.src = "images/2.png";
+         imageObj2.onload = function() {
+            ctx.drawImage(imageObj2, 0, 0, 64, 64);
+            var img = c.toDataURL("image/png");
+            document.write('<img src="' + img + '" width="400" height="400"/>');
+         }
+        };
     });
   }
 </script>
